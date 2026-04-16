@@ -35,7 +35,10 @@
   "js_equivalent_known": true,
   "python_specific_friction": "",
   "tags": ["기초", "조건문"],
-  "note": ""
+  "note": "",
+  "stage_attempted": "A",
+  "patterns_used": ["map", "unpacking"],
+  "patterns_missed": ["comprehension"]
 }
 ```
 
@@ -57,6 +60,22 @@
 | `python_specific_friction` | 파이썬이라서 막힌 지점 (예: "딕셔너리 기본값 처리") |
 | `tags` | 자유 태그 (예: `["해시", "구현"]`) |
 | `note` | 기타 자유 메모 |
+| `stage_attempted` | 이번 풀이에 **시도한** Stage (`A` / `B` / `C` / `D`). 실제 성공 여부와 무관, 의도를 기록 |
+| `patterns_used` | 풀이에 **사용한** 파이써닉 패턴 리스트 (예: `["map", "comprehension", "f-string"]`) |
+| `patterns_missed` | 리뷰에서 **적용 가능했지만 놓친** 패턴 (예: `["sorted", "swapcase"]`) |
+
+### 패턴 어휘 (일관성 위해 합의된 키)
+
+- **언어 기초**: `map` / `filter` / `reduce` / `unpacking` / `slicing` / `f-string` / `ternary` / `walrus`
+- **컴프리헨션**: `list-comp` / `dict-comp` / `set-comp` / `gen-exp`
+- **집계**: `sum` / `min` / `max` / `any` / `all` / `len`
+- **정렬/역순**: `sorted` / `list.sort` / `reversed` / `slice-reverse`
+- **문자열**: `join` / `split` / `swapcase` / `strip` / `format` / `raw-string`
+- **자료구조**: `deque` / `Counter` / `defaultdict` / `heapq` / `bisect`
+- **수학**: `isqrt` / `pow` / `floor-div` / `divmod`
+- **출력**: `print-sep` / `print-unpack` / `print-end`
+
+필요 시 새 키 추가 가능. 기존 jsonl은 소급 기록 안 해도 됨 (앞으로만 기록).
 
 ### 등급 기준 (Grade)
 - **Again**: 풀었지만 거의 손도 못 댈 뻔했다 / 다시 풀면 또 막힐 듯
@@ -102,11 +121,22 @@
 - **익숙한 유형**: 선언적 먼저 시도 (실패 시 절차적 폴백)
 - **새 유형**: 절차적 유지
 
+### Stage D — 상황별 스타일 선택 (실전 판단 단계, 장기 목표)
+Stage C가 "선언적이 기본값"이라면, D는 **"문제 성격을 보고 의식적으로 고르는"** 단계. 실전 코테 합격 수준의 완성형.
+
+- **선언적 선택**: 단순 변환/집계/필터, 의도가 한눈에 보여야 할 때
+- **절차적 선택**: 복잡한 상태 변화, break/continue 얽힘, 중간 디버깅 필요
+- **혼합**: 상위 파이프라인은 선언적, 내부 복잡 로직은 절차적
+
+**전환 증거**: 본인이 **"일부러 절차적을 선택"**했다고 명시할 수 있을 때 (예: "이 문제는 조기 종료 때문에 for-break가 낫다고 판단").
+
 ### Stage 전환 기준
 
 - **A → B**: 같은 파이써닉 패턴을 Claude 리뷰에서 **3번 이상 본** 유형 단위로 전환
   - 예: `sum(... for ...)` 패턴을 3번 봤으면 다음 만날 때 Stage B 시도
+  - **단, "노출 ≠ 사용"**: 봤지만 전이 안 된 패턴은 5번 이상 노출 후에도 미전이면 치트시트 도입 고려
 - **B → C**: 본인이 쓴 선언적 버전이 Claude 제안과 **절반 이상 일치**하기 시작
+- **C → D**: Lv.2 문제에서 **스타일 선택 근거를 명시**할 수 있을 때
 
 ### 디버깅 편의 보존
 
