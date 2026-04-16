@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Scratch / notepad files (local use only)
+index.py
+scratch/
+*.tmp.py
+notepad/
