@@ -24,4 +24,5 @@ exp_NNN_이름/
 
 | ID | 제목 | 기간 | 상태 |
 |---|---|---|---|
-| [exp_000](exp_000_python_onboarding/) | 파이썬 기본기 + 베이스라인 | 1주 | 진행 예정 |
+| [exp_000](exp_000_python_onboarding/) | 파이썬 기본기 + 베이스라인 | 3 세션 | **완료** (21문제, 전이 5건) |
+| [exp_001](exp_001_data_structures_and_fsrs/) | Lv.1 자료구조 + FSRS 재풀이 | 2주 | 진행 중 |
