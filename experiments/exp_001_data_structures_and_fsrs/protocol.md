@@ -49,6 +49,28 @@ exp_000 protocol의 스키마와 동일. `stage_attempted`, `patterns_used`, `pa
 | `improvements` | 이번에 개선된 점 (자유 메모) |
 | `remaining_friction` | 여전히 남은 마찰 |
 
+## 도구 힌트 정책 (`tool_hinted`)
+
+exp_001 목표는 **어휘 확장**이라 자력 100%만 고집하면 학습 지연. 아래 3단계로 구분:
+
+| 힌트 수준 | 의미 | 기록 |
+|---|---|---|
+| **무힌트** | 스스로 도구 떠올림 | `tool_hinted: false` |
+| **도구 이름만** | "Counter 써보세요" 수준 힌트 | `tool_hinted: true`, `tool_hint: "Counter"` |
+| **해설 참조** | 풀이 로직 자체를 봄 | `saw_solution: true` |
+
+**전이 측정 원칙**: `tool_hinted: true`였던 도구는 다음 같은 유형에서 **힌트 없이** 사용했을 때 비로소 "전이 완료".
+
+### 기록 필드 추가
+```json
+{
+  "tool_hinted": true,
+  "tool_hint": "Counter (exp_001 추천 리스트)"
+}
+```
+
+생략 시 `tool_hinted: false` 기본.
+
 ## 일일 루틴 (권장)
 
 ```
