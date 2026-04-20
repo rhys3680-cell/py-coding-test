@@ -28,6 +28,33 @@ sum(x > 0 for x in arr)
 
 ---
 
+## 1-b. for 루프 언패킹 — 2D 리스트/튜플 순회
+
+**상황**: 각 원소가 튜플/리스트일 때 인덱스(`c[0]`, `c[1]`) 대신 이름 쓰기
+
+```python
+# 안 좋음
+for c in commands:
+    sliced = array[c[0]-1:c[1]]
+    k = c[2]
+
+# 좋음 — for 루프 안에서 직접 언패킹
+for i, j, k in commands:
+    sliced = array[i-1:j]
+
+# 컴프리헨션에서도 동일
+[sorted(array[i-1:j])[k-1] for i, j, k in commands]
+
+# enumerate와도 조합
+for idx, (i, j, k) in enumerate(commands):
+    ...
+```
+
+**JS로 치면**: `commands.forEach(([i, j, k]) => ...)` 구조분해
+**핵심**: 원소 구조가 고정이면 언패킹이 **훨씬 읽기 좋음**
+
+---
+
 ## 2. 리스트 컴프리헨션 — 변환/필터
 
 ```python
