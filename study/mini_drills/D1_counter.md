@@ -35,7 +35,14 @@ sum(c.values())           # 전체 원소 수
 s = "mississippi"
 # expected: 'i' (또는 's' — 둘 다 4회, 출현 순서상 'i')
 
-answer =
+answer = 
+# 30s
+from collections import Counter
+
+s = "mississippi"
+
+def solution(s):
+    return Counter(s).most_common(1)
 ```
 
 ---
@@ -48,6 +55,16 @@ arr = [1, 2, 2, 3, 3, 3]
 # expected: Counter({3: 3, 2: 2, 1: 1})
 
 answer =
+
+# 1m 16s
+from collections import Counter
+
+arr = [1, 2, 2, 3, 3, 3]
+
+
+def solution(arr):
+    return Counter(arr)
+
 ```
 
 ---
@@ -61,7 +78,18 @@ B = ["a", "b"]
 # expected: Counter({'a': 1, 'c': 1})   → 즉 ['a', 'c'] 1개씩 남음
 
 answer =
+# 1m 47s
+from collections import Counter
+
+A = ["a", "a", "b", "c"]
+B = ["a", "b"]
+
+
+def solution(a, b):
+    return Counter(a) - Counter(b)
+
 ```
+
 
 ---
 
@@ -73,6 +101,17 @@ s = "abracadabra"
 # expected: [('a', 5), ('b', 2), ('r', 2)]
 
 answer =
+# 1m 14s
+
+from collections import Counter
+
+s = "abracadabra"
+
+
+def solution(s):
+    return Counter(s).most_common(3)
+
+
 ```
 
 ---
@@ -85,6 +124,15 @@ arr = [1, 2, 2, 3, 3, 3]
 # expected: 3
 
 answer =
+# 3m 34s
+from collections import Counter
+
+arr = [1, 2, 2, 3, 3, 3]
+
+
+def solution(arr):
+    return Counter(arr).most_common(1)[0][0]
+
 ```
 
 ---
@@ -98,6 +146,20 @@ b = "silent"
 # expected: True
 
 answer =
+# 2m 36s
+from collections import Counter
+
+a = "listen"
+b = "silent"
+
+
+a = Counter(a) - Counter(b)
+
+
+def solution(a, b):
+    return len(Counter(a) - Counter(b)) == 0
+
+
 ```
 
 ---
@@ -111,6 +173,20 @@ arr = ["a", "b", "a", "c", "b"]
 
 # Hint: dict.fromkeys 또는 Counter 순서 보존(3.7+) 활용
 answer =
+# 모르겠음
+from collections import Counter
+
+arr = ["a", "b", "a", "c", "b"]
+
+
+a = list(Counter(arr))
+
+a1 = dict.fromkeys(arr)
+
+b = list(dict.fromkeys(arr))
+
+print(a1)
+
 ```
 
 ---
@@ -123,6 +199,21 @@ arr = [1, 1, 2, 2, 2, 3]
 # expected: 3  (원소 2가 3번)
 
 answer =
+# 1m
+from collections import Counter
+
+arr = [1, 1, 2, 2, 2, 3]
+
+a = Counter(arr).most_common(1)[0][1]
+
+print(a)
+
+
+def solution(arr):
+    return Counter(arr).most_common(1)[0][1]
+
+
+
 ```
 
 ---
@@ -135,6 +226,22 @@ arr = [1, 2, 2, 3, 4, 4, 5]
 # expected: [1, 3, 5]
 
 answer =
+# 모르겠음
+
+from collections import Counter
+
+arr = [1, 2, 2, 3, 4, 4, 5]
+
+
+a = Counter(arr).items()
+
+
+def solution(arr):
+    return [k for k, v in Counter(arr).items() if v == 1]
+
+
+print(solution(arr))
+
 ```
 
 ---
@@ -148,6 +255,27 @@ completion = ["stanko", "ana", "mislav"]
 # expected: "mislav"
 
 answer =
+# 4m 37s
+
+from collections import Counter
+
+participant = ["mislav", "stanko", "mislav", "ana"]
+completion = ["stanko", "ana", "mislav"]
+
+p = Counter(participant)
+c = Counter(completion)
+
+result = p - c
+
+print(result.most_common(1)[0][0])
+
+
+def solution(p, c):
+    return (Counter(p) - Counter(c)).most_common(1)[0][0]
+
+
+print(solution(participant, completion))
+
 ```
 
 ---

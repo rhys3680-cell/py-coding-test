@@ -1,0 +1,1 @@
+{"date":"2026-04-28","drill_set":"D1","completed":8,"missed":["D1-7","D1-9"],"avg_sec":120,"slowest":"D1-5(214s)","note":"Counter 기본 80% 체화. items+filter 조합 부재(D1-9). dict.fromkeys 미인지(D1-7). most_common 반환형 일부 혼동. 솔루션 이해 후 종료. 3일 뒤(2026-05-01) 같은 드릴 재풀이로 진짜 인출 연습"}

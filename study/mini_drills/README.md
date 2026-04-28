@@ -21,8 +21,8 @@
 ### A. 본인 실제 약점 (우선)
 | # | 도구 | 근거 | 상태 |
 |---|---|---|---|
-| D1 | Counter | 42576 힌트 필요, 42840 키 타입 혼동 | ⏳ 생성 중 |
-| D2 | sorted(key=lambda) | 42889에서 막힘, lambda 첫 경험 | 대기 |
+| D1 | Counter | 42576 힌트 필요, 42840 키 타입 혼동 | ✅ 생성 (04-24) |
+| D2 | sorted(key=lambda) | 42889에서 막힘, lambda 첫 경험 | ✅ 생성 (04-28) |
 | D3 | dict 메서드 (get/items/keys/values) | 42889 탐색 시간 | 대기 |
 | D4 | sum/min/max + 제너레이터 | sum-comp 체화 중, min/max는 아직 | 대기 |
 | D5 | 리스트 컴프리헨션 + if 필터 | 강화용 | 대기 |
