@@ -45,7 +45,9 @@ sorted(words, key=lambda w: (len(w), w))
 arr = [(1, 30), (2, 10), (3, 20)]
 # expected: [(2, 10), (3, 20), (1, 30)]
 
-answer =
+answer = sorted(arr, key=lambda x: x[1])
+
+# 20s
 ```
 
 ---
@@ -57,7 +59,9 @@ answer =
 words = ["banana", "kiwi", "apple", "fig"]
 # expected: ['fig', 'kiwi', 'apple', 'banana']
 
-answer =
+answer = sorted(words, key=len)
+# 20s 
+# 2 try
 ```
 
 ---
@@ -69,7 +73,8 @@ answer =
 arr = [-5, 3, -1, 4, -2]
 # expected: [-1, -2, 3, 4, -5]
 
-answer =
+answer = sorted(arr, key=lambda x: abs(x))
+# 20s
 ```
 
 ---
@@ -79,9 +84,19 @@ answer =
 
 ```python
 d = {"a": 3, "b": 1, "c": 2}
+
+
+answer = sorted(d.items(), key=lambda kv: kv[1])
+```
+
+```python
+d = {"a": 3, "b": 1, "c": 2}
 # expected: [('a', 3), ('c', 2), ('b', 1)]
 
-answer =
+answer = sorted(d, key=lambda kv: kv[1])
+# 딕셔너리 인덱싱을 어떻게 해야할지 모르겠어
+# 2m 54s
+# 3 try
 ```
 
 ---
@@ -93,7 +108,10 @@ answer =
 arr = [(1, 2), (1, 5), (2, 3), (1, 1)]
 # expected: [(1, 5), (1, 2), (1, 1), (2, 3)]
 
-answer =
+answer = sorted(arr, key=lambda x:( x[0], -x[1]))
+
+# 3 try
+# 2m 42s
 ```
 
 ---
@@ -106,7 +124,10 @@ answer =
 words = ["bb", "a", "ccc", "ab", "ba"]
 # expected: ['a', 'ab', 'ba', 'bb', 'ccc']
 
-answer =
+answer = sorted(words, key=lambda x: (len(x), x))
+
+# 3 try
+# 2m 43s
 ```
 
 ---
@@ -118,7 +139,10 @@ answer =
 d = {"a": 3, "b": 1, "c": 2}
 # expected: ['b', 'c', 'a']
 
-answer =
+answer = answer = [el[0] for el in sorted(d.items(), key=lambda kv: kv[1])]
+
+# 3m 32s
+# 1 try
 ```
 
 ---
@@ -131,7 +155,10 @@ words = ["apple", "banana", "kiwi"]
 # 끝글자: e, a, i → 정렬: a < e < i
 # expected: ['banana', 'apple', 'kiwi']
 
-answer =
+answer = sorted(words, key=lambda x: x[-1])
+
+# 30s
+# 1 try
 ```
 
 ---
@@ -143,7 +170,8 @@ answer =
 scores = [("Tom", 90), ("Anna", 90), ("Bob", 85)]
 # expected: [('Anna', 90), ('Tom', 90), ('Bob', 85)]
 
-answer =
+answer = sorted(scores, key=lambda x: (-x[1], x[0]))
+# 이제 적응되서 시간 측정 X
 ```
 
 ---
@@ -155,7 +183,7 @@ answer =
 rates = [(1, 0.5), (2, 0.8), (3, 0.5), (4, 0.0)]
 # expected: [(2, 0.8), (1, 0.5), (3, 0.5), (4, 0.0)]
 
-answer =
+answer = sorted(rates, key=lambda x: (-x[1], x[0]))
 ```
 
 ---

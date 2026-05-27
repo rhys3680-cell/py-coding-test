@@ -1,1 +1,2 @@
 {"date":"2026-04-28","drill_set":"D1","completed":8,"missed":["D1-7","D1-9"],"avg_sec":120,"slowest":"D1-5(214s)","note":"Counter 기본 80% 체화. items+filter 조합 부재(D1-9). dict.fromkeys 미인지(D1-7). most_common 반환형 일부 혼동. 솔루션 이해 후 종료. 3일 뒤(2026-05-01) 같은 드릴 재풀이로 진짜 인출 연습"}
+{"date":"2026-05-27","drill_set":"D2","completed":8,"missed":["D2-4","D2-5"],"avg_sec":85,"slowest":"D2-7(212s)","note":"sorted(key=lambda) 학습. D2-4(dict.items() 누락), D2-5(튜플 괄호 누락)에서 막힘 → 솔루션 후 D2-6부터 적응 → D2-8 30초 → D2-9,10 즉답으로 자동화 도달. 42889 핵심 패턴(D2-10)이 즉답으로 풀린 게 핵심 성과. 42889 재도전 준비 완료"}
