@@ -33,8 +33,18 @@ arr = [3, 1, 4, 1, 5, 9, 2, 6]
 
 ```python
 def solution_a(arr):
-    pass
+    big = min(arr[0], arr[1])
+    second = max(arr[0], arr[1])
 
+    for el in arr:
+        if el <= big:
+            big = el
+        elif el <= second:
+            second = el
+        else:
+            pass
+
+    return second
 
 # 시간:
 ```
@@ -64,6 +74,7 @@ n = 4
 이건 코테 구현 문제의 절반이 요구하는 감각이다.
 
 **힌트가 필요하면 여기까지만 보기**:
+
 > 방향을 `dr, dc` 리스트로 두고 "벽에 닿거나 이미 채워졌으면 방향 전환"
 
 ### 풀이 B
