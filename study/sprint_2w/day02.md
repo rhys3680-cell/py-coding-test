@@ -17,8 +17,10 @@ s = "hello"
 
 ```python
 def b1(s):
-    pass
+    return "".join(reversed(s))
 ```
+
+1m 11s
 
 ---
 
@@ -33,8 +35,17 @@ b2("hello")               # False
 
 ```python
 def b2(s):
-    pass
+    arr1 = list("".join(s.lower().split(" ")))
+    arr2 = list(reversed(arr1))
+    length = len(arr1)
+
+    for el in range(length // 2):
+        if arr1[el] != arr2[el]:
+            return False
+    return True
 ```
+
+7m 21s
 
 ---
 
@@ -50,9 +61,14 @@ b3("hello world")   # 'l'
 > `Counter` 자산 있음 → [D1_counter.md](../mini_drills/D1_counter.md)
 
 ```python
+from collections import Counter
+
+
 def b3(s):
-    pass
+    return Counter(s).most_common(1)[0][0]
 ```
+
+5m 28s
 
 ---
 
@@ -66,8 +82,10 @@ b4("the sky is blue")   # "blue is sky the"
 
 ```python
 def b4(s):
-    pass
+    return " ".join(reversed(s.split(" ")))
 ```
+
+1m 10s
 
 ---
 
@@ -84,8 +102,27 @@ b5("abc")           # "abc"  (압축하면 a1b1c1 로 더 길어짐)
 
 ```python
 def b5(s):
-    pass
+    first = s[0]
+
+    for i in s:
+        cnt = 0
+        if first == i:
+            cnt += 1
+        else:
+            first = i
+            cnt += 0
+
+        print(first, i, cnt)
+
+    return
+
+
+print(b5("aabcccccaaa"))
+print(b5("abc"))
+
 ```
+
+5분 지남
 
 ---
 
@@ -97,7 +134,8 @@ def b5(s):
 
 ```python
 def solution_a(arr):
-    pass
+    return sorted(set(arr))[1]
+
 ```
 
 > Day 1 교훈: `&`는 `and`가 아니다 / 가드는 함수 맨 위 / `second` 초기화에 "비어 있음" 상태 필요
